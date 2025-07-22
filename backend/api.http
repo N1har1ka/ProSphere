@@ -1,0 +1,64 @@
+### Register user
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example5.com",
+  "username": "johndoe5",
+  "password": "secret123"
+}
+
+###
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "email": "john@example5.com",
+  "password": "secret123"
+}
+
+
+###
+POST http://localhost:8080/get_user_and_profile
+Content-Type: application/json
+
+{
+"token": "d1e3a2043222150b9d5ec6cb4dac34d716995dc5c297e97cc9a50c612402194e"}
+
+###
+POST http://localhost:8080/update_profile_data
+Content-Type: application/json
+
+{
+  "token": "d1e3a2043222150b9d5ec6cb4dac34d716995dc5c297e97cc9a50c612402194e",
+ "bio":"this is niharika",
+  "currentPost":"cto",
+  "pastWork":[
+    {
+      "company":"microsoft",
+      "position":"cto",
+      "years":"2+"
+    }
+  ],
+  "education":[
+    {
+      "school":"iit",
+      "degree":"btech",
+      "fieldOfStudy":"cse"
+    }
+  ]
+}
+
+###
+GET http://localhost:8080/user/get_all_users
+Content-Type: application/json
+
+
+###
+GET http://localhost:8080/user/download_resume
+Content-Type: application/json
+
+###
+GET http://localhost:8080/posts
+Content-Type: application/json
