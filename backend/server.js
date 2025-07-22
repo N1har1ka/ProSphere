@@ -14,9 +14,7 @@ app.use(postRoutes);
 app.use(express.static("uploads"));
 
 const start = async () => {
-  const connectDB = await mongoose.connect(
-    "mongodb+srv://niharika202310:ClHpLAE6lvJG80YH@cluster0.idqgek4.mongodb.net/linkedln"
-  );
+  const connectDB = await mongoose.connect(process.env.MONGODB_URI);
   app.listen(8080, () => {
     console.log("server is running on port 8080");
   });
