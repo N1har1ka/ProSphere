@@ -31,8 +31,8 @@ POST http://localhost:8080/update_profile_data
 Content-Type: application/json
 
 {
-  "token": "d1e3a2043222150b9d5ec6cb4dac34d716995dc5c297e97cc9a50c612402194e",
- "bio":"this is niharika",
+  "token": "ba41199f60625512a66c3feff3b4416297ee87175142f90c452b50bd29075013",
+ "bio":"this is john doe ",
   "currentPost":"cto",
   "pastWork":[
     {
