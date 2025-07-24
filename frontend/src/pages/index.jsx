@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
-import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { useRouter } from "next/router";
 import UserLayout from "@/layout/UserLayout";

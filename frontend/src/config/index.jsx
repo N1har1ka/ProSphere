@@ -1,8 +1,13 @@
 const { default: axios } = require("axios");
 
+const prod = true;
+
+const BASE_URL = prod
+  ? "https://prosphere.onrender.com"
+  : "http://localhost:8080";
+
 const clientServer = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: BASE_URL,
 });
 
-const BASE_URL = "http://localhost:8080";
 export { clientServer, BASE_URL };

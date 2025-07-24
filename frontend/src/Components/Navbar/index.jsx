@@ -11,7 +11,7 @@ const NavbarComponent = () => {
     <div className={styles.container}>
       <nav className={styles.navBar}>
         <h1 style={{ cursor: "pointer" }} onClick={() => router.push("/")}>
-          Pro connect
+          Pro Sphere
         </h1>
         <div className={styles.navBarOptionContainer}>
           {authState.profileFetched && (
