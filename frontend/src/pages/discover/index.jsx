@@ -14,6 +14,7 @@ const DiscoverPage = () => {
     if (!authState.all_profiles_fetched) {
       dispatch(getAllUsers());
     }
+    console.log(authState.user);
   }, []);
   return (
     <UserLayout>
@@ -22,27 +23,32 @@ const DiscoverPage = () => {
           <h1>Discover</h1>
           <div className={styles.allUserProfile}>
             {authState.all_profiles_fetched &&
-              authState.all_users.map((user) => {
-                return (
-                  <div
-                    onClick={() => {
-                      router.push(`/view_profile/${user.userId.username}`);
-                    }}
-                    key={user._id}
-                    className={styles.userCard}
-                  >
-                    <img
-                      className={styles.userCard_image}
-                      src={`${BASE_URL}/${user.userId.profilePicture}`}
-                      alt="profile"
-                    />
-                    <div>
-                      <h1>{user.userId.name}</h1>
-                      <p>@{user.userId.username}</p>
+              authState.user?._id &&
+              authState.all_users
+                .filter(
+                  (profile) => profile.userId._id !== authState.user.userId._id
+                )
+                .map((user) => {
+                  return (
+                    <div
+                      onClick={() => {
+                        router.push(`/view_profile/${user.userId.username}`);
+                      }}
+                      key={user._id}
+                      className={styles.userCard}
+                    >
+                      <img
+                        className={styles.userCard_image}
+                        src={`${BASE_URL}/${user.userId.profilePicture}`}
+                        alt="profile"
+                      />
+                      <div>
+                        <h1>{user.userId.name}</h1>
+                        <p>@{user.userId.username}</p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
           </div>
         </div>
       </DashboardLayout>

@@ -46,7 +46,7 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 6vh;
+  height: 8vh;
   display: none;
   justify-content: space-around;
   background: white;
@@ -55,11 +55,40 @@
 .singleNavItemHolder_mobileView {
   display: flex;
   justify-content: space-between;
-  gap: 2.5rem;
+  gap: 4.5rem;
+  padding-block: 1.2rem;
 }
 .mobileNavBar svg {
   height: 2.2rem;
   width: 2.2rem;
+}
+.extraContainer_profile {
+  color: rgb(134, 131, 131);
+  font-weight: bold;
+  padding-block: 0.3rem;
+}
+@media only screen and (max-width: 1000px) {
+  .sideBarOption {
+    gap: 0.7rem;
+  }
+  .sideBarOption p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .sideBarOption > svg {
+    height: 1em;
+    min-width: fit-content;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .sideBarOption > svg {
+    height: 0.8em;
+    min-width: fit-content;
+  }
+  .sideBarOption p {
+    font-size: 0.9rem;
+  }
 }
 @media only screen and (max-width: 600px) {
   .homeContainer_extraContainer {

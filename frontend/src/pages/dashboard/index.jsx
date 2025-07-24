@@ -94,6 +94,14 @@ const dashboard = () => {
                   onChange={(e) => {
                     setFileContent(e.target.files[0]);
                   }}
+                  //                   onChange={(e) => {
+                  //   const file = e.target.files[0];
+                  //   if (file) {
+                  //     setFileContent(file);
+                  //     setImagePreviewUrl(URL.createObjectURL(file)); // 👈 show preview
+                  //   }
+                  // }}
+
                   type="file"
                   hidden
                   id="fileUpload"

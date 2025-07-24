@@ -1,6 +1,7 @@
 import { BASE_URL } from "@/config";
 import {
   AcceptConnection,
+  getConnectionRequest,
   getMyConnectionsRequests,
 } from "@/config/redux/action/authAction";
 import DashboardLayout from "@/layout/DashboardLayout";
@@ -16,6 +17,8 @@ const MyConnectionsPage = () => {
   const router = useRouter();
   const authState = useSelector((state) => state.auth);
   useEffect(() => {
+    dispatch(getConnectionRequest({ token: localStorage.getItem("token") })); // sent
+
     dispatch(
       getMyConnectionsRequests({ token: localStorage.getItem("token") })
     );
@@ -108,6 +111,38 @@ const MyConnectionsPage = () => {
                     <div className={styles.userInfo}>
                       <h1>{user.userId.name}</h1>
                       <p>{user.userId.username}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          {authState.connections
+            .filter((connection) => connection.status_accepted !== null)
+            .map((user, index) => {
+              return (
+                <div className={styles.userCard} key={index}>
+                  <div
+                    onClick={() => {
+                      router.push(
+                        `/view_profile/${user.connectionId.username}`
+                      );
+                    }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "1.2rem",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div className={styles.profilePicture}>
+                      <img
+                        src={`${BASE_URL}/${user.connectionId.profilePicture}`}
+                        alt=""
+                      />
+                    </div>
+                    <div className={styles.userInfo}>
+                      <h1>{user.connectionId.name}</h1>
+                      <p>{user.connectionId.username}</p>
                     </div>
                   </div>
                 </div>

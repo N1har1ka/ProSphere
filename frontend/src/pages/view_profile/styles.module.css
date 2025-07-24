@@ -1,6 +1,6 @@
 .container {
   padding: 1.3rem;
-  background: rgb(230, 230, 230);
+  background: white;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -27,9 +27,7 @@
   padding-top: 6.6rem;
 }
 .card {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
+  padding-block: 1.2rem;
 }
 .card_profileContainer {
   display: flex;
@@ -76,8 +74,87 @@
 }
 .profileContainer_flex {
   display: flex;
+  flex-direction: column;
   gap: 0.7rem;
 }
+.profileSection {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 1rem;
+}
+
+.sectionCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.infoCard {
+  background: #f9f9f9;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  flex: 1 1 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-4px);
+}
+
+.infoCard h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+.infoCard h3 span {
+  font-weight: normal;
+  color: #7f8c8d;
+}
+
+.infoCard p {
+  margin: 0.5rem 0 0;
+  color: #555;
+}
+
+.addButton {
+  background: #4f46e5;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.addButton:hover {
+  background: #4338ca;
+}
+
 @media only screen and (max-width: 600px) {
   .profileContainer_flex {
     flex-direction: column;

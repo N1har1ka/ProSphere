@@ -45,7 +45,7 @@ const authSlice = createSlice({
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
         state.message = {
-          message: "knocking the doro",
+          message: "Knocking the door",
         };
       })
       .addCase(loginUser.fulfilled, (state, action) => {

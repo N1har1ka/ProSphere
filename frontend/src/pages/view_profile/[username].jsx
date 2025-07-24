@@ -161,13 +161,13 @@ const ViewProfilePage = ({ userProfile }) => {
                     </svg>
                   </div>
                 </div>
-                <div>
+                <div style={{ paddingBlock: "1.2rem" }}>
                   <p>{userProfile.bio}</p>
                 </div>
               </div>
               <div style={{ flex: "0.2" }}>
                 <h3>Recent Activity</h3>
-                {userPosts.map((post) => {
+                {/* {userPosts.map((post) => {
                   return (
                     <div key={post._id} className={styles.postCard}>
                       <div className={styles.card}>
@@ -184,31 +184,135 @@ const ViewProfilePage = ({ userProfile }) => {
                       </div>
                     </div>
                   );
-                })}
+                })} */}
+
+                {userPosts.length === 0 ? (
+                  <p style={{ textAlign: "center", color: "gray" }}>
+                    No posts available
+                  </p>
+                ) : (
+                  userPosts.map((post) => {
+                    console.log(userPosts);
+                    const formattedDate = new Date(
+                      post.createdAt
+                    ).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "long",
+                      year: "numeric",
+                    });
+                    return (
+                      <div key={post._id} className={styles.postCard}>
+                        <div className={styles.card}>
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "0.5rem",
+                              }}
+                            >
+                              <img
+                                src={`${BASE_URL}/${userProfile.userId.profilePicture}`}
+                                alt="User"
+                                style={{
+                                  width: "32px",
+                                  height: "32px",
+                                  borderRadius: "50%",
+                                  objectFit: "cover",
+                                }}
+                              />
+                              <div>
+                                <strong>{userProfile.userId.name}</strong>
+                                <div
+                                  style={{
+                                    fontSize: "0.8rem",
+                                    color: "gray",
+                                  }}
+                                >
+                                  {userProfile.userId.username}
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <div
+                                style={{ fontSize: "0.8rem", color: "gray" }}
+                              >
+                                {formattedDate}
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Body */}
+                          <p style={{ marginTop: "0.5rem" }}>{post.body}</p>
+
+                          {/* Post Image */}
+                          {post.media && (
+                            <img
+                              src={`${BASE_URL}/${post.media}`}
+                              alt="Post"
+                              style={{
+                                width: "100%",
+                                marginTop: "0.5rem",
+                                borderRadius: "0.5rem",
+                              }}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>
-          <div className={styles.workHistory}>
-            <h4>Work History</h4>
-            <div className={styles.workHistoryContainer}>
-              {userProfile.pastWork.map((work, index) => {
-                return (
-                  <div key={index} className={styles.workHistoryCard}>
-                    <p
-                      style={{
-                        fontWeight: "bold",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.8rem",
-                      }}
-                    >
-                      {work.company} - {work.position}
-                    </p>
-                    <p>{work.years}</p>
+          <div className={styles.profileSection}>
+            {/* Work History */}
+            <section className={styles.sectionCard}>
+              <div className={styles.sectionHeader}>
+                <h2 className={styles.sectionTitle}>💼 Work History</h2>
+              </div>
+              <div className={styles.cardGrid}>
+                {userProfile.pastWork.map((work, index) => (
+                  <div key={index} className={styles.infoCard}>
+                    <h3>
+                      {work.company} - <span>{work.position}</span>
+                    </h3>
+                    <p>🕒 {work.years} years</p>
                   </div>
-                );
-              })}
-            </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Education History */}
+            <section className={styles.sectionCard}>
+              <div className={styles.sectionHeader}>
+                <h2 className={styles.sectionTitle}>🎓 Education History</h2>
+              </div>
+              <div className={styles.cardGrid}>
+                {userProfile.education.map((edu, index) => (
+                  <div key={index} className={styles.infoCard}>
+                    <h3>
+                      {edu.school} - <span>{edu.degree}</span>
+                    </h3>
+                    <p>📚 {edu.fieldOfStudy}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </DashboardLayout>

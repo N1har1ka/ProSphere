@@ -24,15 +24,15 @@ POST http://localhost:8080/get_user_and_profile
 Content-Type: application/json
 
 {
-"token": "d1e3a2043222150b9d5ec6cb4dac34d716995dc5c297e97cc9a50c612402194e"}
+"token": "90e0f0c0edd7b10ec00366db929d7b73949479ec4dea6b211cb3d48e18363e50"}
 
 ###
 POST http://localhost:8080/update_profile_data
 Content-Type: application/json
 
 {
-  "token": "ba41199f60625512a66c3feff3b4416297ee87175142f90c452b50bd29075013",
- "bio":"this is john doe ",
+  "token": "90e0f0c0edd7b10ec00366db929d7b73949479ec4dea6b211cb3d48e18363e50",
+ "bio":"this is niharika ",
   "currentPost":"cto",
   "pastWork":[
     {
